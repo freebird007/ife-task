@@ -1,0 +1,318 @@
+*{
+    margin:0;padding:0;
+}
+.header,.container,.footer{
+    width:100%;
+}
+.header-content,.container-content,.footer-content{
+    width:980px;
+    margin:0 auto;
+}/*定义头部 中间 尾部的主要内容宽度和位置*/
+.header{
+    height:80px;
+    background-color:#8A2BE2;
+}
+
+
+/*定义header内容部分的高度 设置相对定位，便于后面的logo和导航的绝对定位*/
+.header-content{
+    height:80px;
+    position:relative;
+    /*background-color: red;*/
+}
+.header-content>h1{
+    position: absolute;
+    left:0;
+    bottom:5px;
+}
+.header-content #nav{
+    list-style-type: none;
+    position: absolute;
+    bottom:8px;
+    right:0;
+}
+.header-content #nav li{
+    float: left;
+}
+.header-content #nav a{
+    text-decoration: none;
+    margin-left: 28px;
+    font:14px/150% "宋体","微软雅黑";
+}
+.header-content>h1,.header-content #nav a{
+    color:#fff;
+}
+.header img{
+    position:absolute;
+    top:46px;
+    right: 10px;
+}
+
+
+
+
+
+.container{
+    background-color:#ddd;
+   /* margin:10px 0;*/
+}
+.container:after{
+    display: block; 
+    visibility: hidden;
+    font-size:0;
+    line-height:0;
+    clear:both;
+    content:"";
+}/*在container之后加入一个不可见的清除浮动的块级元素，使container中设置的margin有效*/
+.mainBox{
+    float: left;
+    width:680px; 
+    margin-top: 20px;
+
+}
+/*定义左侧tab格式*/
+
+.mainBox .tab{
+    width: 660px;
+    height: 760px;
+    position: relative;
+
+}
+
+.tab>h3{
+    float: left;
+    width: auto;
+    border-top: 5px solid #8A5241;
+    padding:15px 20px 20px;
+    font-size:14px;
+    line-height: 14px;
+    background-color: white;
+    border-bottom: 3px solid #fff;
+    border-right:2px solid #eee;
+}
+
+.tab>h3:hover{
+    border-bottom: 3px solid #eee;
+    border-top: 5px solid #8A2BE2;
+}
+.tab>div{
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    display: none;
+    background-color: white;
+}
+.tab .tab-block{
+    display: block;
+}
+
+/*定义瀑布流布局的列数 列的宽度和列的之间的间隔*/
+.tab-block{
+   
+    padding: 10px;
+    -webkit-column-count:4;
+    -moz-column-count:4;
+    column-count:4;
+    -moz-column-gap:10px; /* Firefox */
+-webkit-column-gap:10px; /* Safari and Chrome */
+column-gap:10px;
+
+-moz-column-width:150px; /* Firefox */
+-webkit-column-width:100px; /* Safari and Chrome */
+column-width:150px;
+}
+.tab-block>div{
+    width:100%;
+    background-color: #C71585;
+    height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    overflow-x: hidden;
+}
+.tab-block img{
+    width:100%;
+}
+.tab-block .img-info{
+    padding: 10px;
+    color: #fff;
+}
+.tab-block .img-info h3{
+    font: 16px/2 "微软雅黑";
+}
+.tab-block .img-info p{
+    font: 12px/1.2 "宋体";
+}
+
+/*定义瀑布流菜单下方的查看更多的块*/
+.seemore{
+    width: 100%;
+    clear: both;
+    height: 50px;
+    background-color: #fff;
+    margin-bottom: 100px;
+    text-align: center;
+    border-radius:10px;
+}
+.seemore span{
+    font: 12px/50px "微软雅黑";
+}
+.seemore:hover{
+    cursor: pointer;
+    background-color: #eee;
+
+}
+
+
+
+/*侧边框各个内容区域*/
+.sideBox{
+    float:right;
+    width:290px;
+    background-color: #ddd;
+    margin-top: 20px;
+}
+
+.sideBox .side-search{
+        margin-bottom: 10px;/*设置侧边框各个区域间隔*/
+        background-color: #fff;
+}
+/*定义侧边框搜索框*/
+.sideBox .side-search{
+    height: 80px;
+}
+
+.sideBox .side-search>div{
+    width: 250px;
+    height: 40px;
+    position: relative;/*相对定位搜索框具体位置*/
+    left: 20px;
+    top: 20px;
+    border: solid 1px #eee;
+}
+.side-search .side-img{
+    float: left;
+    width:40px;height: 40px; 
+}
+.side-search .side-input{
+    float: left;
+    width: 150px;
+    line-height: 40px;
+}
+.side-search .side-btn{
+    float: left;
+    width: 60px;
+    height: 40px;
+    background-color: #ddd;
+    font:normal 1.5em/40px "微软雅黑";
+}
+.side-btn:hover{
+    background-color: red;
+}
+
+/*定义侧边栏中的人气排行版*/
+.sideBox .side-place{
+    clear: both;/*清除浮动*/
+    height: 230px;
+    background-color: #fff;
+    position: relative;/*定义相对定位 为之后的绝对定位作参照物*/
+}
+.side-place h3{
+    padding: 20px;
+    font-size: 16px;
+    color:#ccc;
+}
+/*偷懒了，直接截取designed图中的排名的图*/
+.side-place img{
+    position: absolute;
+    left: 20px;
+}
+/*对排名的列表进行绝对定位，避免被img遮盖*/
+.side-place ul{
+    list-style: none;
+    position: absolute;left: 160px;
+}
+.side-place ul li{
+    display: block;
+    padding-top: 3px;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+.footer{
+    clear:both;/*这里的清除浮动 防止因为中间自适应高度且浮动的部分和下面重合*/
+    background-color:#000;
+}
+.footer-content{
+    width: 980px;
+/*    position: relative;*/
+}
+/*定义footer分割线的位置 */
+.footer hr{
+    position: relative;
+    top:40px;
+}
+.footer-nav{
+    height: 40px;
+    text-align: center;
+}/*定义footer-nav DIV元素里的行内元素居中*/
+.footer-nav ul li{
+    margin-left:28px;
+    display: inline-block;
+}/*定义列表的li元素为行内元素，li就会在footer-nav上居中显示*/
+.footer-nav ul li a{
+    color:#eee;
+    text-decoration: none;
+    font:normal 14px/40px "微软雅黑";
+}
+
+/*定义footer主要内容的格式*/
+.footer-main{
+    height: 300px;
+}
+.footer-main>div{
+    width: 196px;
+    float: left;
+}
+.footer-main h3{
+    margin-top: 3em;
+}
+.footer-main ul{
+    margin-top: 1.5em;
+}
+.footer-main a{
+    text-decoration: none;
+    font:normal normal 12px/150% "宋体";
+}
+.footer-main h3,.footer-main a{
+    color:#ddd;
+}
+
+
+.footer-last{
+    text-align:center;
+}
+/*定义版权信息和github头像位置，可以利用将p和img转化为block之后再margin居中
+对于p元素还可以转化为inline-block元素之后再设置父元素文字居中来进行居中*/
+.footer-last p,.footer-last img{
+    /*display: inline-block;*/
+    color: #eee;
+    display: block;
+    margin:0 auto;
+}
+/*.footer-last img{
+    display: block;
+    margin:0 auto;
+}*/
+@media(max-width:980px){
+    .header img{
+        display: none;
+    }
+    .header,.footer,.container{
+        width:980px;
+    }/*定义设置背景颜色的元素在浏览器宽度小于980px时的宽度，防止背景颜色在水平滚动条拉动后消失*/
+}
