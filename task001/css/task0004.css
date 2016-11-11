@@ -56,6 +56,7 @@
 .container{
     background-color:#ddd;
    /* margin:10px 0;*/
+   overflow:hidden;/*避免子IDV中的margin-top影响到附IDV*/
 }
 .container:after{
     display: block; 
@@ -65,156 +66,129 @@
     clear:both;
     content:"";
 }/*在container之后加入一个不可见的清除浮动的块级元素，使container中设置的margin有效*/
-.mainBox{
-    float: left;
-    width:680px; 
-    margin-top: 10px;
-    margin-bottom: 270px;
+
+.container-content{
+    width: 980px;
+    margin-top:100px;
+    margin-bottom:50px;
 }
-/*定义左侧文章栏的文字、段落格式*/
-.mainBox>div{
-    height: 340px;
-    margin-top: 10px;
-    background-color: #fff;
-    padding:20px 15px;
+.container-content .content-selfintro{  
+    height: 260px;
 }
-.mainBox .title{
-    font-size:16px;
-    color:#82a6ee;
-    margin-bottom: 6px;
+.container-content .content-selfintro img{
+    position: absolute;
+    left: 395px;
+    top:-80px;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    border: 15px solid #ddd;
 }
-.mainBox .stitle{
-    font-size: 12px;
-    line-height: 150%;
-    color:#666;
-    margin-bottom: 10px;
-}
-.mainBox .main-content{
-    height: 275px;
-    overflow: hidden;
-}/*对于文章主要内容区域定义高度，设置overflow，屏蔽多出来的文字*/
-.main-content p{
-    text-indent:2em; 
-    font-size: 12px;
-    line-height: 140%;
-    margin-bottom: 6px;
-}
-.mainBox .ending{
-    font: italic 14px serif;
-    height: 30px;
-    float: right;
-    line-height: 30px;
-    color: #bbb;
+.selfintro-left,.selfintro-right{
+    height: 260px;
 }
 
-/*侧边框各个内容区域*/
-.sideBox{
-    float:right;
-    width:290px;
-    background-color: #ddd;
-    margin-top: 20px;
+
+.container-content .content-selfphone{
+    height: 200px;
 }
 
-.sideBox .side-search,.sideBox .side-cate,.sideBox .side-date,.sideBox .side-tags{
-        margin-bottom: 10px;/*设置侧边框各个区域间隔*/
-        background-color: #fff;
-}
-/*定义侧边框搜索框*/
-.sideBox .side-search{
-    height: 80px;
-    width:290px;
+.selfphone-left,.selfphone-right{
+    height: 200px;
 }
 
-.sideBox .side-search .side-search-cont{
-    width: 250px;
-    height: 40px;
+.container-content .content-study{
+    height: 320px;
+}
+.study-left,.study-right{
+    height: 320px;
+}
+
+.container-content .content-work{
+    height: 400px;
+}
+.work-left,.work-right{
+    height: 400px;
+}
+
+/*对于主要内容中可以折叠的部分进行折叠*/
+
+.container-content>div{
     position: relative;
-    left: 20px;
-    top: 20px;
-    border: solid 1px #eee;
 }
-
-.side-search .side-img,.side-search .side-input,.side-search .side-btn{
+/*定义左右两边的内容DIV宽度 高度 浮动*/
+.selfintro-left,.selfintro-right,.selfphone-left,.selfphone-right,.study-left,.study-right,.work-left,.work-right{
+    width:485px;
+    height: 100%;
     float: left;
-    height: 40px;
-    font:normal 1em/40px "微软雅黑";
+    background-color: #fff; 
 }
-.side-search .side-img{
-    width:40px;
-    background-color: pink; 
+/*设置左边内容的DIV的左外边距 显示灰色的条框*/
+.selfintro-left,.selfphone-left,.study-left,.work-left{
+    margin-right: 10px;
 }
-.side-search .side-input{
-    display: block;
-    width: 150px;
-    border: 0;
+/*定义图片绝对定位 设置灰色边框*/
+.content-selfphone img,.content-study img,.container-content img{
+    position: absolute;
+    border-radius: 50%;
+    left:445px;
+    height: 80px;
+    width: 80px;
+    border: 5px solid #ddd;
 }
-.side-search .side-btn{
+
+
+
+/**/
+.content-selfintro h3,.content-selfphone h3,.content-study h3,.content-work h3{
+    position: absolute;
+    left: 300px;
+    top:120px;
+    font: 1.5em/150% "宋体";
+}
+.content-selfintro p,.content-selfphone p,.content-study p,.content-work p{
+    position: absolute;
+    left: 560px;
+    top:120px;
+    font:1em/150% "宋体";
+    overflow: hidden;
+    padding:0 10px 10px 0;
+}
+
+.study-time1,.study-time2{
+    position: absolute;
+    left: 455px;
+    height: 30px;
     width: 60px;
-    background-color: #eee;
-    border-radius: 20px;  
-}
-
-.side-btn:hover{
-    background-color: red;
-}
-
-/*定义侧边栏中的栏目选项区域*/
-.sideBox .side-cate{
-    clear:both;/*清除side-search中的浮动*/
-    height: 252px;
-    border-bottom: solid 2px #ccc;
-}
-.side-cate ul{
-    list-style-type: none;
-}
-.side-cate ul li a{
-    text-decoration: none;
-    border-top:solid 2px #ccc;
-    border-right: solid 2px #ccc;
-    border-left: solid 5px #c00;
-    display: block;
-    height: 61px;
-    line-height: 61px;/*文字居中*/
-    padding-left: 2em;/*文字距离左侧一些距离*/
-}
-.side-cate ul a:hover{
-    border-left: solid 5px #666;
-}
-
-/*定义侧边栏中的日历表 */
-.sideBox .side-date{
-    
-}
-.side-date table{
-    height: 270px;
-    width: 290px;
-    border-collapse:collapse;
-}
-/*表格标题的文字格式设置*/
- .side-date table caption{
-    height:36px;
-    line-height: 36px;
-    color:#8A2BE2;  
-    font-weight:bold;  
-}
-/*单元格内容和单元格标题共同样式的定义*/
- .side-date table tr,th{
-    width: 41.5px;
+    border: 5px solid #ddd;
+    border-radius: 10%;
+    background-color: #fff;
+    line-height: 30px;
     text-align: center;
-    border-bottom:2px solid #ddd;
- }
- .side-date .last-month, .side-date .next-month{
-    color: #ccc;
- }
- td,tr>td+td+td+td+td+td+td{
-    background-color:#eee;
- }
- tr>td+td{
-    background-color:#fff;
- }
- td:hover{
-    background-color: #8A2BE2;
- }
+}
+.study-time1{
+    top: 120px;
+}
+.study-time2{
+    top: 180px;
+}
+
+.content-study p{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .footer{
     clear:both;/*这里的清除浮动 防止因为中间自适应高度且浮动的部分和下面重合*/
     background-color:#000;
